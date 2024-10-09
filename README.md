@@ -1,7 +1,36 @@
+# Predicting Average Temperature for a City Based on Geographic Features
 
-# Random Forest Regressor Model Pipeline
+## Problem Statement
 
-## Overview
+The goal of this project is to predict the average daily temperature (`TAVG`) for City D using geographic and weather data from three neighboring cities (A, B, and C). The data includes features such as latitude, longitude, elevation, precipitation, snow depth, and temperatures (maximum, minimum, and average) for each of these three cities. By using this information, we aim to build a machine learning model capable of predicting City D's average temperature based on its geographical proximity and weather-related features of the neighboring cities.
+
+This is an important task for weather forecasting, environmental monitoring, and broader climate research, as understanding how geographical and weather patterns influence temperatures can lead to more accurate predictions.
+
+## Dataset Overview
+
+The dataset can be accessed from Kaggle: [Shaastra Techathon AI-ML Challenge](https://www.kaggle.com/competitions/shaastra-techathon-ai-ml-challenge-2/data).
+
+The dataset consists of geographical and weather data from three cities (A, B, and C) and requires predictions for City D. The provided features include:
+
+- **Date**: The day on which the measurements were recorded (`DD-MM-YYYY`).
+- **Geographical Features**:
+  - `LATITUDE_A`, `LATITUDE_B`, `LATITUDE_C`: Latitude of cities A, B, and C.
+  - `LONGITUDE_A`, `LONGITUDE_B`, `LONGITUDE_C`: Longitude of cities A, B, and C.
+  - `ELEVATION_A`, `ELEVATION_B`, `ELEVATION_C`: Elevation of cities A, B, and C.
+  
+- **Weather Features**:
+  - `PRCP_A`, `PRCP_B`, `PRCP_C`: Daily precipitation in cities A, B, and C.
+  - `SNWD_A`, `SNWD_B`, `SNWD_C`: Snow depth in cities A, B, and C.
+  - `TMAX_A`, `TMAX_B`, `TMAX_C`: Maximum temperature in cities A, B, and C.
+  - `TMIN_A`, `TMIN_B`, `TMIN_C`: Minimum temperature in cities A, B, and C.
+  - `TAVG_A`, `TAVG_B`, `TAVG_C`: Average temperature in cities A, B, and C (Target: City D's TAVG).
+
+### Dataset Purpose
+
+- The dataset provides geographical and temperature data for three cities (A, B, and C) to predict the average temperature for City D.
+- The target variable is the average temperature (`TAVG`) of City D, which we aim to predict using the information from the other cities.
+- 
+## Solution Code Overview
 This repository contains a Python script that builds a machine learning pipeline using the **Random Forest Regressor** from the scikit-learn library. The script performs the following tasks:
 
 1. Loads and processes the dataset.
